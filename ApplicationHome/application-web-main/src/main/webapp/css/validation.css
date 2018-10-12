@@ -1,0 +1,16 @@
+.valid_tip{
+    position: absolute;
+   	height: 22px;
+   	line-height: 22px;
+   	overflow: hidden;
+   	right: 20px;
+   	top: 8px;
+   	background-color: transparent;
+   	color: red;
+   	padding: 0 8px;
+   	border-radius: 3px;
+}
+
+.valid_fail{
+	border-color:red;
+}

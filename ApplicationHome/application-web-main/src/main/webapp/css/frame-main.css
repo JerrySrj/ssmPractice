@@ -1,0 +1,154 @@
+/***寮�鍙戣�呭钩鍙版繁钃濅箣绌烘牱寮�****/
+/*****鍏ㄥ眬瀹氫箟*******/
+:root{
+    /*******棰滆壊瀹氫箟*****/
+    /*******棰滆壊瀹氫箟*****/
+    --棰滆壊-鏍囬:#000000;
+    --棰滆壊-閾炬帴:#0129a3;
+    --棰滆壊-瀛楁:#000000;
+    --棰滆壊-瀛楁杈撳叆妗嗚壊:#e6e6e6;
+    --棰滆壊-鏅�氭枃鏈�:000000;
+    --棰滆壊-娣¤竟妗�:#e2e2e2;
+    --棰滆壊-鍐呭鑳屾櫙鑹�:#f2f2f2;
+    --棰滆壊-涓诲唴瀹硅儗鏅壊:#ffffff;
+    --棰滆壊-table琛ㄥご鑹�:#f2f2f2;
+    --棰滆壊-table闅旇鑳屾櫙鑹�:#f6f6f6;
+    --棰滆壊-table琛ㄦ牸涓�琛岄紶鏍囪嚦涓婇鑹�:#f2f4fa;
+    --棰滆壊-table琛ㄦ牸鍐呭閾炬帴榛樿棰滆壊:#0129a3;
+    --棰滆壊-page鏁板瓧鍒嗛〉榛樿绗竴涓互鍙婇紶鏍囨寚鍚戣儗鏅壊:#0129a3;
+    --棰滆壊-涓埆璇存槑鎬ф枃瀛�:#2eb324;
+    --棰滆壊-寮鸿皟: #3a39ff;
+    --棰滆壊-璀﹀憡:orange;
+    --棰滆壊-閿欒:red;
+}
+:root {
+    --base-font-size: 16px;
+    --link-color: #6495ed;
+}
+
+
+/*****鏃犲搷搴斾笅鏍峰紡***/
+html,body{
+    overflow-y: hidden;
+    font-size: 10px;
+    height: 100%;
+}
+.views{
+    height: 100%;
+}
+.header-view{
+    position: absolute;
+    height: 50px;
+    width: 100%;
+	z-index:1
+}
+.body-view{
+    height: 100%;
+    position: absolute;
+    padding-top: 50px;
+    width: 100%;
+
+}
+.page-left{
+    position: absolute;
+    width: 200px;
+    top: 50px;
+    bottom: 0;
+    overflow:hidden;
+}
+.page-right{
+
+    position: absolute;
+    left: 200px;
+    top: 50px;
+    bottom: 0px;
+    right: 0px;
+}
+.pages{
+    overflow: auto;
+    position: absolute;
+    left: 0px;
+    top: 46px;
+    bottom: 0px;
+    right: 0px;
+}
+.pages-tag{
+    border-top: 6px solid #0129a3;
+    z-index: 100;
+}
+.page{
+    padding: 15px 0px;
+}
+.page-container{
+	width: 800px;
+	border: 1px solid var(--棰滆壊-娣¤竟妗�);
+}
+.page-title{
+    position: relative;
+    border: 1px solid var(--棰滆壊-娣¤竟妗�);
+    border-left: 4px solid var(--棰滆壊-鏍囬);
+    padding: 10px 10px;
+    box-shadow: 0.2rem 0.1rem 0.3rem var(--棰滆壊-鏍囬);
+    -moz-box-shadow: 0.2rem 0.1rem 0.3rem var(--棰滆壊-鏍囬);
+    -webkit-box-shadow: 0.2rem 0.1rem 0.3rem var(--棰滆壊-鏍囬);
+}
+.page-title-info{
+    position: relative;
+    color:var(--棰滆壊-鏍囬);
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: inline-block;
+}
+.page-title-buttons{
+    position: relative;
+     float: right;
+    display: inline-block;
+
+
+}
+.page-title-buttons i{
+    font-size:1.5rem;
+}
+
+.page-subtitle{
+    position: relative;
+    border-bottom: 1px solid var(--棰滆壊-娣¤竟妗�);
+
+    padding: 10px 20px 0px 10px;
+
+}
+.page-subtitle-info{
+    border-bottom: 4px solid var(--棰滆壊-鏍囬);
+    position: relative;
+    color:var(--棰滆壊-鏍囬);
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: inline-block;
+}
+.page-subtitle-buttons{
+    position: relative;
+    float: right;
+    font-size:2rem;
+    display: inline-block;
+
+}
+.form{
+
+}
+.form-container{
+    list-style: none;
+    padding-top: 20px;
+}
+.form-container li{
+    padding: 5px;
+}
+.st_tree{
+	overflow-y:auto;
+	margin-right:-17px;
+}
+xmp{
+    background: #e6e4e4;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}

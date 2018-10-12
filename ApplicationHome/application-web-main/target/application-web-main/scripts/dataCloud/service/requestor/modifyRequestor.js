@@ -1,0 +1,5 @@
+
+
+function modifyReq(){
+	$("#reqForm").submit();
+}
