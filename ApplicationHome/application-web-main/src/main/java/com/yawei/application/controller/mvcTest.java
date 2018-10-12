@@ -28,7 +28,7 @@ public class mvcTest {
     @AuthPassport
 	@RequestMapping("/test2")
 	public String test2() {
-    	/*testser.test();*/
+    	/*testser.test();*/   
 		 return "/HomePage";
 	}
 
@@ -65,6 +65,7 @@ public class mvcTest {
                filepath.getParentFile().mkdirs();
            }
            //将上传文件保存到一个目标文件当中
+         //将上传文件保存到一个目标文件当中
            filemodel.getFile().transferTo(new File(path + File.separator + filename));
            return "success";
        } else {
