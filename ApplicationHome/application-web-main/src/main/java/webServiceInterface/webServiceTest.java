@@ -14,7 +14,7 @@ public class webServiceTest {
 		ArrayOfString weatherbyCityName = soap.getWeatherbyCityName("青岛"); 
 		/*System.out.println(weatherbyCityName.getString());*/
 		List<String> wealist=weatherbyCityName.getString();
-		for(String param:wealist){
+		for(String param:wealist){  
 			System.out.println(param);
 		}
 	}
