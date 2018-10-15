@@ -8,7 +8,7 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
-
+ApplicationHome/application-web-main/target/m2e-wtp/web-resources/META-INF/maven/com.yawei/application-web-main/pom.properties
 # Compiled class file
 *.class
 
