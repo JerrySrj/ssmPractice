@@ -20,7 +20,10 @@ public class treeTest {
 					for (XwManaSy chilstr : xwList) {
 						//如果相等则为子节点
 						if (parCode.equals(chilstr.getXmCode())) {  
-								if (chilstr.getChildren()== null) {
+								if (chilstr.get
+								
+								
+								Children()== null) {
 									chilstr.setChildren(new ArrayList<XwManaSy>());
 								}
 								chilstr.getChildren().add(str);  
