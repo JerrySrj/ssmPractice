@@ -1,1 +1,1 @@
-ssm¿ò¼Üdemo
+spring+spring MVC+Mybatis demo

@@ -16,7 +16,7 @@ public class webServiceTest {
 		List<String> wealist=weatherbyCityName.getString();
 		for(String param:wealist){  
 			System.out.println(param);
-		}
+		} 
 	}
 	 
 }
