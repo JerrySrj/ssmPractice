@@ -58,8 +58,8 @@
         <!-- 指向mybatis主配置文件 -->
         <property name="configLocation" value="classpath:mybatis-config.xml" />
         <!-- 自动扫描"mapperLocations"目录下的所有SQL映射的xml文件 -->
-        <!-- com.yawei.application.dao.mapper -->
-        <property name="mapperLocations" value="classpath*:com/yawei/application/**/*.xml" />
+        <!-- com.sunrj.application.dao.mapper -->
+        <property name="mapperLocations" value="classpath*:com/sunrj/application/**/*.xml" />
     </bean>
     
     <!-- 配置SqlSession模板，可通过声明SqlSession类型的对象，名称必须与id相同 -->

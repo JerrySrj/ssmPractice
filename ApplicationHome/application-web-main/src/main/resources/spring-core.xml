@@ -18,7 +18,7 @@
 	<context:annotation-config />
 	
 	<!-- 开启组件自动扫描 -->
-	<context:component-scan base-package="com.yawei.*" />
+	<context:component-scan base-package="com.sunrj.*" />
 	
 	<!-- 开启基于@Aspectj的切面注解处理器 -->
 	<aop:aspectj-autoproxy proxy-target-class="true" />

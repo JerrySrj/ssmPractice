@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:mvc="http://www.springframework.org/schema/mvc"
-
+	xmlns:task="http://www.springframework.org/schema/task"
 	xsi:schemaLocation="     
            http://www.springframework.org/schema/beans     
            http://www.springframework.org/schema/beans/spring-beans-4.3.xsd     
@@ -12,8 +12,9 @@
            http://www.springframework.org/schema/aop 
            http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
            http://www.springframework.org/schema/mvc     
-           http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd ">
-
+           http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd 
+           http://www.springframework.org/schema/task  
+           http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
 
 	<!-- ViewResolver -->
@@ -22,22 +23,22 @@
 		<property name="prefix" value="/WEB-INF/views" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
-        <property name="basePackage" value="com.etoak.repository" />  
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>  
-    </bean>  
-    <!-- spring文件上传配置 -->
-     <bean id="multipartResolver"  
-        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
-        <!-- 上传文件大小上限，单位为字节（10MB） -->
-        <property name="maxUploadSize">  
-            <value>10485760</value>  
-        </property>  
-        <!-- 请求的编码格式，必须和jSP的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1 -->
-        <property name="defaultEncoding">
-            <value>UTF-8</value>
-        </property>
-    </bean>
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.etoak.repository" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+	</bean>
+	<!-- spring文件上传配置 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 上传文件大小上限，单位为字节（10MB） -->
+		<property name="maxUploadSize">
+			<value>10485760</value>
+		</property>
+		<!-- 请求的编码格式，必须和jSP的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1 -->
+		<property name="defaultEncoding">
+			<value>UTF-8</value>
+		</property>
+	</bean>
 	<!-- spring for redis -->
 	<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
 		<!--最大空闲数 -->
@@ -58,18 +59,22 @@
 		<!--连接池配置 -->
 		<property name="poolConfig" ref="poolConfig" />
 	</bean>
-	<bean id="redisTemplate"
-      class="org.springframework.data.redis.core.RedisTemplate"
-      p:connection-factory-ref="connectionFactory"/>
-	 
-	<!-- redis 结束  -->
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
+		p:connection-factory-ref="connectionFactory" />
+
+	<!-- redis 结束 -->
 	<!-- 开启组件自动扫描 -->
 	<context:component-scan base-package="com.yawei.application.*"
 		use-default-filters="false">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
- 
+	<!-- 自动调度类扫描 -->
+	<context:component-scan base-package="com.sunrj.*" />
+	<task:executor id="executor" pool-size="5" />
+	<task:scheduler id="scheduler" pool-size="10" />
+	<task:annotation-driven executor="executor"
+		scheduler="scheduler" />
 	<!-- 开启spring-mvc注解处理器 -->
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
@@ -108,15 +113,16 @@
 		cache-period="31536000" />
 	<!-- 配置mvc的拦截器 可以配置多个,按照生命顺序进行链式执行 -->
 	<mvc:interceptors>
-		 <mvc:interceptor>
-			 <mvc:mapping path="/**" />
-			 <mvc:exclude-mapping path="/css/**"/>
-			 <mvc:exclude-mapping path="/fonts/**"/>
-			 <mvc:exclude-mapping path="/css/**"/>
-			 <mvc:exclude-mapping path="/scripts/**"/>
-			 <mvc:exclude-mapping path="/plugins/**"/>
-			 <mvc:exclude-mapping path="/images/**"/>
-			 <bean class="com.yawei.application.controller.interceptor.ValidateInterceptor"></bean> 
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/css/**" />
+			<mvc:exclude-mapping path="/fonts/**" />
+			<mvc:exclude-mapping path="/css/**" />
+			<mvc:exclude-mapping path="/scripts/**" />
+			<mvc:exclude-mapping path="/plugins/**" />
+			<mvc:exclude-mapping path="/images/**" />
+			<bean
+				class="com.sunrj.application.controller.interceptor.ValidateInterceptor"></bean>
 		</mvc:interceptor>
-	 </mvc:interceptors>  
+	</mvc:interceptors>
 </beans>
