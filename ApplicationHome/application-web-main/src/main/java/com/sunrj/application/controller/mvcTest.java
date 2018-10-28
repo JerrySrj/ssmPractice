@@ -1,20 +1,22 @@
 package com.sunrj.application.controller;
 
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
- 
+
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.sunrj.application.System.Service.ssmTestService;
 import com.sunrj.application.System.model.FileUpLoadModel;
+import com.sunrj.application.System.model.TestModel;
 import com.sunrj.application.ToolClass.annotation.AuthPassport;
  
 
@@ -25,7 +27,7 @@ public class mvcTest {
 	private ssmTestService testser;
 
 
-    @AuthPassport
+    /*@AuthPassport*/
 	@RequestMapping("/test2")
 	public String test2() {
     	/*testser.test();*/   
@@ -33,7 +35,13 @@ public class mvcTest {
 	}
 
     @RequestMapping("/Login")
-    public String Login() {
+    public String Login() throws IllegalAccessException, InvocationTargetException {
+    	Map<String,Object> map=new HashMap<String,Object>();
+    	map.put("test1","1" );
+    	map.put("test2", "2");
+    	TestModel model=new TestModel();
+    	BeanUtils.populate(model, map);
+    	System.out.println(model);
         return "/Login";
     }
 	//上传文件会自动绑定到MultipartFile中Login

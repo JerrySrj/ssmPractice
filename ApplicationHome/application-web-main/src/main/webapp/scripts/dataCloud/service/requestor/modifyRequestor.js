@@ -1,5 +1,0 @@
-
-
-function modifyReq(){
-	$("#reqForm").submit();
-}

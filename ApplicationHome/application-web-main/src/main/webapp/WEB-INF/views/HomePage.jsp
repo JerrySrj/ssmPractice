@@ -5,15 +5,19 @@
 
 <html style="height:100%">
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
+<!-- bootstrap css -->
 <link rel="stylesheet" href="${ctx}/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="${ctx}/css/bootstrap.min.css">
-
-<link href="${ctx}/css/main.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="${ctx}/css/bootstrap.min.css"> 
 <link rel="stylesheet" href="${ctx}/css/ionicons.min.css">
- 
+<!-- bootstraptable css -->
+<link href="${ctx}/plugins/bootstrapTable/css/bootstrap-table.css"  rel="stylesheet">
 <title>应用 </title>
 <body>
-<p>HOMEPAGE</p>
+ 
 </body>
+<script src="${ctx}/scripts/js/jquery.min.js"></script> 
+<script src="${ctx}/scripts/bootstrap.min.js" ></script>
+<script src="${ctx}/plugins/bootstrapTable/js/bootstrap-table/bootstrap-table_yawei.js" ></script>
+<script src="${ctx}/plugins/bootstrapTable/js/bootstrap-table/bootstrap-table-zh-CN.js"></script>
 </html>
 
