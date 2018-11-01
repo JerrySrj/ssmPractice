@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>文件上传</h2>
-    <form action="/application-web-main/test1/upload" method="post" enctype="multipart/form-data" method="post">
+    <form action="/application-web-main/upload/upload" method="post" enctype="multipart/form-data"  >
         <table>
             <tr>
                 <td>用户名:</td>

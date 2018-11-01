@@ -60,6 +60,20 @@
         <!-- 自动扫描"mapperLocations"目录下的所有SQL映射的xml文件 -->
         <!-- com.sunrj.application.dao.mapper -->
         <property name="mapperLocations" value="classpath*:com/sunrj/application/**/*.xml" />
+        <!-- pagehelper 插件集成  -->
+        <property name="plugins">  
+        <array>  
+          <bean class="com.github.pagehelper.PageHelper">  
+            <property name="properties">  
+              <value>  
+              <!-- 你使用的数据库类型 -->  
+                dialect=mysql
+                reasonable=true
+              </value>  
+            </property>  
+          </bean>  
+        </array>  
+      </property>  
     </bean>
     
     <!-- 配置SqlSession模板，可通过声明SqlSession类型的对象，名称必须与id相同 -->
