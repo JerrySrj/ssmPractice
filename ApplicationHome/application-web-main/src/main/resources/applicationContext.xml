@@ -64,7 +64,7 @@
 
 	<!-- redis 结束 -->
 	<!-- 开启组件自动扫描 -->
-	<context:component-scan base-package="com.yawei.application.*"
+	<context:component-scan base-package="com.sunrj.application.*"
 		use-default-filters="false">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
@@ -121,8 +121,7 @@
 			<mvc:exclude-mapping path="/scripts/**" />
 			<mvc:exclude-mapping path="/plugins/**" />
 			<mvc:exclude-mapping path="/images/**" />
-			<bean
-				class="com.sunrj.application.controller.interceptor.ValidateInterceptor"></bean>
+			<bean class="com.sunrj.application.controller.interceptor.ValidateInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 </beans>
