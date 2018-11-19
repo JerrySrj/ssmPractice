@@ -49,7 +49,7 @@ public class mvcTest {
 		
 		PageHelper.startPage(page, limit);  //startPage是告诉拦截器说我要开始分页了。分页参数是这两个。
         List<Map<String,Object>> list = testser.test();
-        PageInfo pages = new PageInfo(list);
+        PageInfo<Map<String, Object>> pages = new PageInfo<Map<String, Object>>(list);
         returnlist.setRows(pages.getList());
         returnlist.setTotal(pages.getTotal());
 		 return returnlist;

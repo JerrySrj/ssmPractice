@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html  >
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,8 +15,8 @@
 <link rel="stylesheet"
 	href="${ctx}/plugins/AdminLTE-master/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <!-- Font Awesome -->
-<link rel="stylesheet"
-	href="${ctx}/plugins/AdminLTE-master/bower_components/font-awesome/css/font-awesome.min.css">
+ 
+<link rel="stylesheet" href="${ctx}/plugins/AdminLTE-master/bower_components/font-awesome/css/font-awesome.css" >
 <!-- Ionicons -->
 <link rel="stylesheet"
 	href="${ctx}/plugins/AdminLTE-master/bower_components/Ionicons/css/ionicons.min.css">
@@ -62,7 +62,7 @@ desired effect
 
 		<!-- Main Header -->
 		<header class="main-header"> <!-- Logo --> <a
-			href="index2.html" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+			href="javascript:0;" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
 			<span class="logo-mini"><b>A</b>LT</span> <!-- logo for regular state and mobile devices -->
 			<span class="logo-lg"><b>Admin</b>LTE</span>
 		</a> <!-- Header Navbar --> <nav class="navbar navbar-static-top"
@@ -276,10 +276,10 @@ desired effect
 							<h3 class="box-title">Hover Data Table</h3>
 						</div> -->
 						<!-- /.box-header -->
-						<div class="box-body">
+						<div class="box-body" style='height:100%'>
 
-							<iframe src='${ctx}/test1/test2' width='100%'  height="100%"
-								frameborder="0" scrolling="yes"></iframe>
+							<iframe src='${ctx}/test1/test2' width='100%' height='600px' 
+								frameborder="0" scrolling="auto"></iframe>
 
 						</div>
 					</div>
