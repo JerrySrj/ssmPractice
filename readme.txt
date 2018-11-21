@@ -1,1 +1,2 @@
-spring+spring MVC+Mybatis demo
+1、spring+spring MVC+Mybatis demo
+2、add AdminLTE
