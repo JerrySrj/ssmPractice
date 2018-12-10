@@ -9,8 +9,8 @@
             <property name="suppressAllComments" value="true"/>  
         </commentGenerator>  
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"			
-						connectionURL="jdbc:mysql://127.0.0.1:3306/practice"			
-						userId="root" password="111111" />
+						connectionURL="jdbc:mysql://10.138.25.28:3306/ys_db"			
+						userId="root" password="fxst123456" />
 		<!-- 生成模型的包名和位置-->  
 		<javaModelGenerator targetPackage="com.sunrj.application.model" targetProject="./src" />
 		<!-- 生成映射文件的包名和位置--> 
@@ -18,6 +18,8 @@
 		<!-- 生成DAO的包名和位置--> 
 		<javaClientGenerator targetPackage="com.sunrj.application.model"	targetProject="./src" type="XMLMAPPER" />
 	 
-		 <table tableName="sys_department"></table>
+		  
+		 <table tableName="INT_ODSBCC_APPLY_NEUSOFT_INTERFACE"></table>
+		 <!-- <table tableName="SYS_BCC_ACC_DIM"></table> -->
 	</context>
 </generatorConfiguration>

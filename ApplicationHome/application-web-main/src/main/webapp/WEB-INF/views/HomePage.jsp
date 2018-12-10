@@ -15,50 +15,45 @@
 <link href="${ctx}/plugins/bootstrapTable/css/bootstrap-table.css"
 	rel="stylesheet">
 <style>
-.treegrid-indent {width:16px; height: 16px; display: inline-block; position: relative;}
-
-.treegrid-expander {width:16px; height: 16px; display: inline-block; position: relative; cursor: pointer;}
-
-.treegrid-expander-expanded{background-image: url(../img/collapse.png); }
-.treegrid-expander-collapsed{background-image: url(../img/expand.png);}
+ 
+.bar {
+overflow-y: auto;
+}
 </style>
 <title>应用</title>
 <body>
 
 	<div class="row">
 		<div class="col-sm-12">
-			<div class="col-sm-4">
-			</div>
-			<div class="col-sm-8">
 			<div class=" bar">
+				<div id="toolbar" class="btn-group">
+					<div class="pull-left form-inline form-group">
+						<input type="text" id="q_regino" name="q_regino"
+							class="form-control" placeholder=" "> <input type="text"
+							id="q_tablefield" name="q_tablefield" class="form-control"
+							placeholder=" ">
+						<button type="button" class="btn  btn-info" onclick="bstQuery();">
+							<i class="fa fa-search" aria-hidden="true"></i>&nbsp;查询
+						</button>
+						<button type="button" class="btn  btn-primary"
+							onclick="doinsert();">
+							<i class="fa fa-plus" aria-hidden="true"></i>&nbsp;新增
+						</button>
+						<button type="button" class="btn btn-primary" onclick="doEdit();">
+							<i class="fa fa-edit" aria-hidden="true"></i>&nbsp;修 改
+						</button>
+						<button type="button" class="btn btn-warning" onclick="doDel();">
+							<i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;删 除
+						</button>
+					</div>
+				</div>
+			</div>
+			<table id="QueryTable" data-mobile-responsive="true"></table>
 
-		<div id="toolbar" class="btn-group">
-			<div class="pull-left form-inline form-group">
-				<input type="text" id="q_regino" name="q_regino"
-					class="form-control" placeholder=" "> <input type="text"
-					id="q_tablefield" name="q_tablefield" class="form-control"
-					placeholder=" ">
-				<button type="button" class="btn  btn-info" onclick="bstQuery();">
-					<i class="fa fa-search" aria-hidden="true"></i>&nbsp;查询
-				</button>
-				<button type="button" class="btn  btn-primary" onclick="doinsert();">
-					<i class="fa fa-plus" aria-hidden="true"></i>&nbsp;新增
-				</button>
-				<button type="button" class="btn btn-primary" onclick="doEdit();">
-					<i class="fa fa-edit" aria-hidden="true"></i>&nbsp;修 改
-				</button>
-				<button type="button" class="btn btn-warning" onclick="doDel();">
-					<i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;删 除
-				</button>
-			</div>
 		</div>
 	</div>
-	<table id="QueryTable" data-mobile-responsive="true"></table>
 	</div>
-			</div>
-		</div>
-	</div>
-	
+
 	<!-- 模态框，需要模态弹框时调用 -->
 	<div id="myModal" class="modal inmodal fade" tabindex="-1"
 		role="dialog" aria-hidden="true"></div>
@@ -71,7 +66,7 @@
 <script
 	src="${ctx}/plugins/bootstrapTable/js/bootstrap-table/bootstrap-table_add.js"></script>
 <script
-	src="${ctx}/plugins/bootstrapTable/js/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script> 
+	src="${ctx}/plugins/bootstrapTable/js/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
 <script>
 	$.fn.bootstrapTable.defaults.pagination = true;
 	$.fn.bootstrapTable.defaults.pageNumber = 1;
@@ -90,7 +85,7 @@
 	//$.fn.bootstrapTable.defaults.s
 	$.fn.bootstrapTable.defaults.queryParamsType = "undefined";
 	$.fn.bootstrapTable.defaults.contentType = 'application/x-www-form-urlencoded';
-	 $(document).ready(function() {
+	$(document).ready(function() {
 		initTable();
 	});
 	function initTable() {
@@ -137,9 +132,9 @@
 			},
 		});
 	}
-	
-	function doinsert(){
-		$("#myModal").load("${ctx}/test1/toadd",function(){
+
+	function doinsert() {
+		$("#myModal").load("${ctx}/test1/toadd", function() {
 			$("#myModal").modal();
 		})
 	}
