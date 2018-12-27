@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sunrj.application.model.ImpZhppRsjkV2LxfwMapper" >
+  <resultMap id="BaseResultMap" type="com.sunrj.application.model.ImpZhppRsjkV2Lxfw" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="cversion" property="cversion" jdbcType="VARCHAR" />
+    <result column="iyear" property="iyear" jdbcType="VARCHAR" />
+    <result column="imonth" property="imonth" jdbcType="VARCHAR" />
+    <result column="iday" property="iday" jdbcType="VARCHAR" />
+    <result column="pinpai" property="pinpai" jdbcType="VARCHAR" />
+    <result column="kehumc" property="kehumc" jdbcType="VARCHAR" />
+    <result column="imonth_sr" property="imonthSr" jdbcType="DOUBLE" />
+    <result column="iyear_sr" property="iyearSr" jdbcType="DOUBLE" />
+    <result column="imonth_ml" property="imonthMl" jdbcType="DOUBLE" />
+    <result column="iyear_ml" property="iyearMl" jdbcType="DOUBLE" />
+    <result column="iorder_index" property="iorderIndex" jdbcType="BIGINT" />
+    <result column="dcreatetime" property="dcreatetime" jdbcType="TIMESTAMP" />
+    <result column="ccreate_by" property="ccreateBy" jdbcType="VARCHAR" />
+    <result column="dupdatetime" property="dupdatetime" jdbcType="TIMESTAMP" />
+    <result column="cupdatetime_by" property="cupdatetimeBy" jdbcType="VARCHAR" />
+    <result column="bflag" property="bflag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, cversion, iyear, imonth, iday, pinpai, kehumc, imonth_sr, iyear_sr, imonth_ml, 
+    iyear_ml, iorder_index, dcreatetime, ccreate_by, dupdatetime, cupdatetime_by, bflag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sunrj.application.model.ImpZhppRsjkV2LxfwExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from IMP_ZHPP_RSJK_V2_LXFW
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from IMP_ZHPP_RSJK_V2_LXFW
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from IMP_ZHPP_RSJK_V2_LXFW
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sunrj.application.model.ImpZhppRsjkV2LxfwExample" >
+    delete from IMP_ZHPP_RSJK_V2_LXFW
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sunrj.application.model.ImpZhppRsjkV2Lxfw" >
+    insert into IMP_ZHPP_RSJK_V2_LXFW (id, cversion, iyear, 
+      imonth, iday, pinpai, 
+      kehumc, imonth_sr, iyear_sr, 
+      imonth_ml, iyear_ml, iorder_index, 
+      dcreatetime, ccreate_by, dupdatetime, 
+      cupdatetime_by, bflag)
+    values (#{id,jdbcType=BIGINT}, #{cversion,jdbcType=VARCHAR}, #{iyear,jdbcType=VARCHAR}, 
+      #{imonth,jdbcType=VARCHAR}, #{iday,jdbcType=VARCHAR}, #{pinpai,jdbcType=VARCHAR}, 
+      #{kehumc,jdbcType=VARCHAR}, #{imonthSr,jdbcType=DOUBLE}, #{iyearSr,jdbcType=DOUBLE}, 
+      #{imonthMl,jdbcType=DOUBLE}, #{iyearMl,jdbcType=DOUBLE}, #{iorderIndex,jdbcType=BIGINT}, 
+      #{dcreatetime,jdbcType=TIMESTAMP}, #{ccreateBy,jdbcType=VARCHAR}, #{dupdatetime,jdbcType=TIMESTAMP}, 
+      #{cupdatetimeBy,jdbcType=VARCHAR}, #{bflag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sunrj.application.model.ImpZhppRsjkV2Lxfw" >
+    insert into IMP_ZHPP_RSJK_V2_LXFW
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cversion != null" >
+        cversion,
+      </if>
+      <if test="iyear != null" >
+        iyear,
+      </if>
+      <if test="imonth != null" >
+        imonth,
+      </if>
+      <if test="iday != null" >
+        iday,
+      </if>
+      <if test="pinpai != null" >
+        pinpai,
+      </if>
+      <if test="kehumc != null" >
+        kehumc,
+      </if>
+      <if test="imonthSr != null" >
+        imonth_sr,
+      </if>
+      <if test="iyearSr != null" >
+        iyear_sr,
+      </if>
+      <if test="imonthMl != null" >
+        imonth_ml,
+      </if>
+      <if test="iyearMl != null" >
+        iyear_ml,
+      </if>
+      <if test="iorderIndex != null" >
+        iorder_index,
+      </if>
+      <if test="dcreatetime != null" >
+        dcreatetime,
+      </if>
+      <if test="ccreateBy != null" >
+        ccreate_by,
+      </if>
+      <if test="dupdatetime != null" >
+        dupdatetime,
+      </if>
+      <if test="cupdatetimeBy != null" >
+        cupdatetime_by,
+      </if>
+      <if test="bflag != null" >
+        bflag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="cversion != null" >
+        #{cversion,jdbcType=VARCHAR},
+      </if>
+      <if test="iyear != null" >
+        #{iyear,jdbcType=VARCHAR},
+      </if>
+      <if test="imonth != null" >
+        #{imonth,jdbcType=VARCHAR},
+      </if>
+      <if test="iday != null" >
+        #{iday,jdbcType=VARCHAR},
+      </if>
+      <if test="pinpai != null" >
+        #{pinpai,jdbcType=VARCHAR},
+      </if>
+      <if test="kehumc != null" >
+        #{kehumc,jdbcType=VARCHAR},
+      </if>
+      <if test="imonthSr != null" >
+        #{imonthSr,jdbcType=DOUBLE},
+      </if>
+      <if test="iyearSr != null" >
+        #{iyearSr,jdbcType=DOUBLE},
+      </if>
+      <if test="imonthMl != null" >
+        #{imonthMl,jdbcType=DOUBLE},
+      </if>
+      <if test="iyearMl != null" >
+        #{iyearMl,jdbcType=DOUBLE},
+      </if>
+      <if test="iorderIndex != null" >
+        #{iorderIndex,jdbcType=BIGINT},
+      </if>
+      <if test="dcreatetime != null" >
+        #{dcreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ccreateBy != null" >
+        #{ccreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="dupdatetime != null" >
+        #{dupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cupdatetimeBy != null" >
+        #{cupdatetimeBy,jdbcType=VARCHAR},
+      </if>
+      <if test="bflag != null" >
+        #{bflag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sunrj.application.model.ImpZhppRsjkV2LxfwExample" resultType="java.lang.Integer" >
+    select count(*) from IMP_ZHPP_RSJK_V2_LXFW
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update IMP_ZHPP_RSJK_V2_LXFW
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.cversion != null" >
+        cversion = #{record.cversion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.iyear != null" >
+        iyear = #{record.iyear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imonth != null" >
+        imonth = #{record.imonth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.iday != null" >
+        iday = #{record.iday,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pinpai != null" >
+        pinpai = #{record.pinpai,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kehumc != null" >
+        kehumc = #{record.kehumc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imonthSr != null" >
+        imonth_sr = #{record.imonthSr,jdbcType=DOUBLE},
+      </if>
+      <if test="record.iyearSr != null" >
+        iyear_sr = #{record.iyearSr,jdbcType=DOUBLE},
+      </if>
+      <if test="record.imonthMl != null" >
+        imonth_ml = #{record.imonthMl,jdbcType=DOUBLE},
+      </if>
+      <if test="record.iyearMl != null" >
+        iyear_ml = #{record.iyearMl,jdbcType=DOUBLE},
+      </if>
+      <if test="record.iorderIndex != null" >
+        iorder_index = #{record.iorderIndex,jdbcType=BIGINT},
+      </if>
+      <if test="record.dcreatetime != null" >
+        dcreatetime = #{record.dcreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ccreateBy != null" >
+        ccreate_by = #{record.ccreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dupdatetime != null" >
+        dupdatetime = #{record.dupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cupdatetimeBy != null" >
+        cupdatetime_by = #{record.cupdatetimeBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bflag != null" >
+        bflag = #{record.bflag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update IMP_ZHPP_RSJK_V2_LXFW
+    set id = #{record.id,jdbcType=BIGINT},
+      cversion = #{record.cversion,jdbcType=VARCHAR},
+      iyear = #{record.iyear,jdbcType=VARCHAR},
+      imonth = #{record.imonth,jdbcType=VARCHAR},
+      iday = #{record.iday,jdbcType=VARCHAR},
+      pinpai = #{record.pinpai,jdbcType=VARCHAR},
+      kehumc = #{record.kehumc,jdbcType=VARCHAR},
+      imonth_sr = #{record.imonthSr,jdbcType=DOUBLE},
+      iyear_sr = #{record.iyearSr,jdbcType=DOUBLE},
+      imonth_ml = #{record.imonthMl,jdbcType=DOUBLE},
+      iyear_ml = #{record.iyearMl,jdbcType=DOUBLE},
+      iorder_index = #{record.iorderIndex,jdbcType=BIGINT},
+      dcreatetime = #{record.dcreatetime,jdbcType=TIMESTAMP},
+      ccreate_by = #{record.ccreateBy,jdbcType=VARCHAR},
+      dupdatetime = #{record.dupdatetime,jdbcType=TIMESTAMP},
+      cupdatetime_by = #{record.cupdatetimeBy,jdbcType=VARCHAR},
+      bflag = #{record.bflag,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sunrj.application.model.ImpZhppRsjkV2Lxfw" >
+    update IMP_ZHPP_RSJK_V2_LXFW
+    <set >
+      <if test="cversion != null" >
+        cversion = #{cversion,jdbcType=VARCHAR},
+      </if>
+      <if test="iyear != null" >
+        iyear = #{iyear,jdbcType=VARCHAR},
+      </if>
+      <if test="imonth != null" >
+        imonth = #{imonth,jdbcType=VARCHAR},
+      </if>
+      <if test="iday != null" >
+        iday = #{iday,jdbcType=VARCHAR},
+      </if>
+      <if test="pinpai != null" >
+        pinpai = #{pinpai,jdbcType=VARCHAR},
+      </if>
+      <if test="kehumc != null" >
+        kehumc = #{kehumc,jdbcType=VARCHAR},
+      </if>
+      <if test="imonthSr != null" >
+        imonth_sr = #{imonthSr,jdbcType=DOUBLE},
+      </if>
+      <if test="iyearSr != null" >
+        iyear_sr = #{iyearSr,jdbcType=DOUBLE},
+      </if>
+      <if test="imonthMl != null" >
+        imonth_ml = #{imonthMl,jdbcType=DOUBLE},
+      </if>
+      <if test="iyearMl != null" >
+        iyear_ml = #{iyearMl,jdbcType=DOUBLE},
+      </if>
+      <if test="iorderIndex != null" >
+        iorder_index = #{iorderIndex,jdbcType=BIGINT},
+      </if>
+      <if test="dcreatetime != null" >
+        dcreatetime = #{dcreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ccreateBy != null" >
+        ccreate_by = #{ccreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="dupdatetime != null" >
+        dupdatetime = #{dupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cupdatetimeBy != null" >
+        cupdatetime_by = #{cupdatetimeBy,jdbcType=VARCHAR},
+      </if>
+      <if test="bflag != null" >
+        bflag = #{bflag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sunrj.application.model.ImpZhppRsjkV2Lxfw" >
+    update IMP_ZHPP_RSJK_V2_LXFW
+    set cversion = #{cversion,jdbcType=VARCHAR},
+      iyear = #{iyear,jdbcType=VARCHAR},
+      imonth = #{imonth,jdbcType=VARCHAR},
+      iday = #{iday,jdbcType=VARCHAR},
+      pinpai = #{pinpai,jdbcType=VARCHAR},
+      kehumc = #{kehumc,jdbcType=VARCHAR},
+      imonth_sr = #{imonthSr,jdbcType=DOUBLE},
+      iyear_sr = #{iyearSr,jdbcType=DOUBLE},
+      imonth_ml = #{imonthMl,jdbcType=DOUBLE},
+      iyear_ml = #{iyearMl,jdbcType=DOUBLE},
+      iorder_index = #{iorderIndex,jdbcType=BIGINT},
+      dcreatetime = #{dcreatetime,jdbcType=TIMESTAMP},
+      ccreate_by = #{ccreateBy,jdbcType=VARCHAR},
+      dupdatetime = #{dupdatetime,jdbcType=TIMESTAMP},
+      cupdatetime_by = #{cupdatetimeBy,jdbcType=VARCHAR},
+      bflag = #{bflag,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

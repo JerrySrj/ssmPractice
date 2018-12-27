@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sunrj.application.System.dao.Department.SysDepartmentMapper" >
+  <resultMap id="BaseResultMap" type="com.sunrj.application.System.model.Department.SysDepartment" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="ccode" property="ccode" jdbcType="VARCHAR" />
+    <result column="cname" property="cname" jdbcType="VARCHAR" />
+    <result column="cpar_code" property="cparCode" jdbcType="VARCHAR" />
+    <result column="cpar_name" property="cparName" jdbcType="VARCHAR" />
+    <result column="ccreate_by" property="ccreateBy" jdbcType="VARCHAR" />
+    <result column="dupdatetime" property="dupdatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, ccode, cname, cpar_code, cpar_name, ccreate_by, dupdatetime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sunrj.application.System.model.Department.SysDepartmentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sys_department
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_department
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_department
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sunrj.application.System.model.Department.SysDepartmentExample" >
+    delete from sys_department
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sunrj.application.System.model.Department.SysDepartment" >
+    insert into sys_department (id, ccode, cname, 
+      cpar_code, cpar_name, ccreate_by, 
+      dupdatetime)
+    values (#{id,jdbcType=BIGINT}, #{ccode,jdbcType=VARCHAR}, #{cname,jdbcType=VARCHAR}, 
+      #{cparCode,jdbcType=VARCHAR}, #{cparName,jdbcType=VARCHAR}, #{ccreateBy,jdbcType=VARCHAR}, 
+      #{dupdatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sunrj.application.System.model.Department.SysDepartment" >
+    insert into sys_department
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="ccode != null" >
+        ccode,
+      </if>
+      <if test="cname != null" >
+        cname,
+      </if>
+      <if test="cparCode != null" >
+        cpar_code,
+      </if>
+      <if test="cparName != null" >
+        cpar_name,
+      </if>
+      <if test="ccreateBy != null" >
+        ccreate_by,
+      </if>
+      <if test="dupdatetime != null" >
+        dupdatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="ccode != null" >
+        #{ccode,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null" >
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="cparCode != null" >
+        #{cparCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cparName != null" >
+        #{cparName,jdbcType=VARCHAR},
+      </if>
+      <if test="ccreateBy != null" >
+        #{ccreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="dupdatetime != null" >
+        #{dupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sunrj.application.System.model.Department.SysDepartmentExample" resultType="java.lang.Integer" >
+    select count(*) from sys_department
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sys_department
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.ccode != null" >
+        ccode = #{record.ccode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cname != null" >
+        cname = #{record.cname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cparCode != null" >
+        cpar_code = #{record.cparCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cparName != null" >
+        cpar_name = #{record.cparName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ccreateBy != null" >
+        ccreate_by = #{record.ccreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dupdatetime != null" >
+        dupdatetime = #{record.dupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sys_department
+    set id = #{record.id,jdbcType=BIGINT},
+      ccode = #{record.ccode,jdbcType=VARCHAR},
+      cname = #{record.cname,jdbcType=VARCHAR},
+      cpar_code = #{record.cparCode,jdbcType=VARCHAR},
+      cpar_name = #{record.cparName,jdbcType=VARCHAR},
+      ccreate_by = #{record.ccreateBy,jdbcType=VARCHAR},
+      dupdatetime = #{record.dupdatetime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sunrj.application.System.model.Department.SysDepartment" >
+    update sys_department
+    <set >
+      <if test="ccode != null" >
+        ccode = #{ccode,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null" >
+        cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="cparCode != null" >
+        cpar_code = #{cparCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cparName != null" >
+        cpar_name = #{cparName,jdbcType=VARCHAR},
+      </if>
+      <if test="ccreateBy != null" >
+        ccreate_by = #{ccreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="dupdatetime != null" >
+        dupdatetime = #{dupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sunrj.application.System.model.Department.SysDepartment" >
+    update sys_department
+    set ccode = #{ccode,jdbcType=VARCHAR},
+      cname = #{cname,jdbcType=VARCHAR},
+      cpar_code = #{cparCode,jdbcType=VARCHAR},
+      cpar_name = #{cparName,jdbcType=VARCHAR},
+      ccreate_by = #{ccreateBy,jdbcType=VARCHAR},
+      dupdatetime = #{dupdatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
