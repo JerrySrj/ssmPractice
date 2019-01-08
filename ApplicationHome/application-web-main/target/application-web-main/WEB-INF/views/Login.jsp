@@ -383,5 +383,20 @@ desired effect
 	<!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
+<%----------------------------弹窗------------------------------------------%>
+	<div class="modal fade" id="Outmodal" role="basic" aria-hidden="true">
+		      <div class="modal-dialog">
+		        <div class="modal-content">
+		        </div>
+		      </div>
+		    </div>
+    <script>
+		//父页面弹出模态框，url为子页面地址
+        function modalOut(url) {
+            $("#Outmodal").modal({
+                remote: url
+        });
+        }
+	</script>
 </body>
 </html>

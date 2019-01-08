@@ -16,8 +16,8 @@
 	rel="stylesheet">
 <style>
  
-.bar {
-overflow-y: auto;
+body {
+overflow-x: hidden;
 }
 </style>
 <title>应用</title>
@@ -54,12 +54,7 @@ overflow-y: auto;
 	</div>
 	</div>
 
-	<!-- 模态框，需要模态弹框时调用 -->
-	<div id="myModal" class="modal inmodal fade" tabindex="-1"
-		role="dialog" aria-hidden="true"></div>
-	<!-- 模态框遮罩 -->
-	<div id='backdropId' class='modal-backdrop fade in'
-		style='display: none;'></div>
+
 </body>
 <script src="${ctx}/scripts/jquery-3.1.1.min.js"></script>
 <script src="${ctx}/scripts/bootstrap.min.js"></script>
@@ -133,10 +128,11 @@ overflow-y: auto;
 		});
 	}
 
-	function doinsert() {
-		$("#myModal").load("${ctx}/test1/toadd", function() {
-			$("#myModal").modal();
-		})
+
+
+	function doinsert(){
+        var _iframe = window.parent;
+        _iframe.modalOut('${ctx}/test1/toadd');
 	}
 </script>
 </html>

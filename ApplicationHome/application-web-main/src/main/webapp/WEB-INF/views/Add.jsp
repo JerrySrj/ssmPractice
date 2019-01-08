@@ -8,7 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog  ">
 	<div class="modal-content animated bounceInRight">
 		<form id="form">
 			<div class="modal-header">
