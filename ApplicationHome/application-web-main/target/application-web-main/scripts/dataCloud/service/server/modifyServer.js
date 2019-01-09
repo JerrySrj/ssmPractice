@@ -1,3 +1,0 @@
-function modifySer(){
-	$("#serForm").submit();
-}
