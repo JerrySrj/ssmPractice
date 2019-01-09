@@ -1,1 +1,0 @@
-spring+spring MVC+Mybatis demo
