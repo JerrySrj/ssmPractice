@@ -2,6 +2,7 @@ package com.sunrj.application.System.Service.impl.Department;
 
 import java.util.List;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,15 +18,31 @@ public class SysDepartmentServiceImpl implements SysDepartmentService{
 	 
 	@Override
 	public List<SysDepartment> selectDepartmentList(SysDepartmentExample dto) {
-		 
+
 		List<SysDepartment> resultList=sysDepartmentMapper.selectByExample(dto);
 		return resultList;
 	}
 
 	@Override
-	public int insertDepartment(SysDepartmentExample dto) {
-		// TODO Auto-generated method stub
+	public int deleteDepartment(String guid) {
 		return 0;
+	}
+
+	@Override
+	public int insertDepartment(SysDepartment dto) {
+		// TODO Auto-generated method stub
+		return sysDepartmentMapper.insert(dto);
+	}
+
+	@Override
+	public SysDepartment selectbypk(Long guid) {
+		return sysDepartmentMapper.selectByPrimaryKey(guid);
+	}
+
+	@Override
+	public int updateDepartment(SysDepartment dto) {
+		// TODO Auto-generated method stub
+		return sysDepartmentMapper.updateByPrimaryKeySelective(dto);
 	}
 
 }

@@ -8,9 +8,14 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.sunrj.application.System.Service.Department.SysDepartmentService;
+import com.sunrj.application.System.Service.impl.Department.SysDepartmentServiceImpl;
+import com.sunrj.application.System.model.Department.SysDepartment;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,12 +37,23 @@ import com.sunrj.application.ToolClass.annotation.AuthPassport;
 public class mvcTest {
 	@Autowired(required=false)
 	private ssmTestService testser;
-
+    @Autowired
+	private SysDepartmentService departmentService;
 
     /*@AuthPassport*/
 	@RequestMapping("/test2")
-	public String test2() {
-    	/*testser.test();*/   
+	public String test2(Model model) {
+
+		List<Map<String,Object>> list = testser.test();
+		String ztreestring="";
+		for(int i=0;i<list.size();i++){
+			ztreestring+="{"+ "id:"+"'"+list.get(i).get("ccode")+"'"+",";
+			ztreestring+="pId:"+"'"+list.get(i).get("ParentId")+"'"+",";
+			ztreestring+="name:"+"'"+list.get(i).get("cname")+"'";
+			ztreestring+="},";
+		}
+		 ztreestring="["+ztreestring.substring(0,ztreestring.length())+"]";
+		model.addAttribute("ztreestring",ztreestring);
 		 return "/HomePage";
 	}
 	@RequestMapping("/GetDepartment")
@@ -66,9 +82,30 @@ public class mvcTest {
         return "/Login";
     }
 	
-    @RequestMapping("/toadd")
-	public String toadd() {
-    	/*testser.test();*/   
+    @RequestMapping("/modify")
+	public String modify(Model model,HttpServletRequest request) {
+	    String param=request.getParameter("id");
+	    if(param!=null){
+            Long id=Long.parseLong(param);
+            SysDepartment sys=departmentService.selectbypk(id);
+            model.addAttribute("Sys",sys);
+        }
 		 return "/Add";
+	}
+	@RequestMapping("/toUI")
+	public String toUI(){
+		return "/ApplicationManage/UI";
+	}
+
+	@RequestMapping("/addDepartment")
+	public String addDepartment(SysDepartment department){
+		if(department.getId()==null){
+			departmentService.insertDepartment(department);
+		}
+		else{
+
+			departmentService.updateDepartment(department);
+		}
+		return "redirect:/test1/Login";
 	}
 }

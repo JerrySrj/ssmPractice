@@ -6,7 +6,6 @@
 <html  >
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>AdminLTE 2 | Starter</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta
@@ -32,10 +31,12 @@
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
+<style>
+		.navbar-nav>li>a>i{
+			line-height:20px;
+		}
+	</style>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -75,8 +76,8 @@ desired effect
 				<!-- Messages: style can be found in dropdown.less-->
 				<li class="dropdown messages-menu">
 					<!-- Menu toggle button --> <a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"> <i class="fa fa-envelope-o"></i> <span
-						class="label label-success">4</span>
+					data-toggle="dropdown"> <i class="fa fa-envelope-o"></i>
+					<span class="label label-success">4</span>
 				</a>
 					<ul class="dropdown-menu">
 						<li class="header">You have 4 messages</li>
@@ -390,6 +391,12 @@ desired effect
 		        </div>
 		      </div>
 		    </div>
+	<div class="modal fade" id="Outmodal2" role="basic" aria-hidden="true">
+		      <div class="modal-dialog">
+		        <div class="modal-content">
+		        </div>
+		      </div>
+		    </div>
     <script>
 		//父页面弹出模态框，url为子页面地址
         function modalOut(url) {
@@ -397,6 +404,15 @@ desired effect
                 remote: url
         });
         }
+        function modalOut2(url) {
+            $("#Outmodal2").modal({
+                remote: url
+            });
+        }
+        //清除上次modal数据
+        $('body').on('hidden.bs.modal', '.modal', function () {
+            $(this).removeData('bs.modal');
+        });
 	</script>
 </body>
 </html>

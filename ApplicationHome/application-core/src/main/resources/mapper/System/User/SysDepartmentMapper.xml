@@ -106,8 +106,8 @@
       cpar_code, cpar_name, ccreate_by, 
       dupdatetime)
     values (#{id,jdbcType=BIGINT}, #{ccode,jdbcType=VARCHAR}, #{cname,jdbcType=VARCHAR}, 
-      #{cparCode,jdbcType=VARCHAR}, #{cparName,jdbcType=VARCHAR}, #{ccreateBy,jdbcType=VARCHAR}, 
-      #{dupdatetime,jdbcType=TIMESTAMP})
+      #{cparCode,jdbcType=VARCHAR}, #{cparName,jdbcType=VARCHAR}, 'srj',
+      now())
   </insert>
   <insert id="insertSelective" parameterType="com.sunrj.application.System.model.Department.SysDepartment" >
     insert into sys_department

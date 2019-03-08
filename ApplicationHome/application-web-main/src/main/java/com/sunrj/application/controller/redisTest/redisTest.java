@@ -1,6 +1,6 @@
 package com.sunrj.application.controller.redisTest;
 
-import org.junit.Test;
+ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -8,7 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import redis.clients.jedis.Jedis;
 
 public class redisTest {
-	@Test
+	 @Test
 	public void redisTester() {
 		Jedis jedis = new Jedis("localhost", 6379, 100000);
 		int i = 0;

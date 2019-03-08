@@ -9,5 +9,11 @@ public interface SysDepartmentService {
 	//查询
    public List<SysDepartment> selectDepartmentList(SysDepartmentExample dto);
    //新增
-   public int insertDepartment(SysDepartmentExample dto);
+   public int insertDepartment(SysDepartment dto);
+   //根据主键查询
+    public SysDepartment selectbypk(Long guid);
+    //删除
+    int deleteDepartment(String guid);
+    //更新
+    int updateDepartment(SysDepartment dto);
 }
